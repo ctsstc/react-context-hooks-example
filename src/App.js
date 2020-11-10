@@ -1,14 +1,14 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Articles from "./containers/Articles"
 import AddArticle from "./components/AddArticle/AddArticle";
-
+import ArticleProvider from "./context/articleContext";
 
 function App() {
   return (
-    <Fragment>
+    <ArticleProvider>
        <AddArticle />
        <Articles />
-    </Fragment>
+    </ArticleProvider>
     )
 }
 export default App
