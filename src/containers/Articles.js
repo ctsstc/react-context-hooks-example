@@ -1,13 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import Article from "../components/Article/Article"
+import { ArticleContext } from "../context/articleContext"
 
 const Articles = () => {
-  const [articles, setArticles] = useState([
-    { id: 1, title: "post 1", body: "Quisque cursus, metus vitae pharetra" },
-    { id: 2, title: "post 2", body: "Quisque cursus, metus vitae pharetra" },
-  ])
-
-return (
+  const {articles} = useContext(ArticleContext);
+  return (
     <div>
       {articles.map(article => (
         <Article key={article.id} article={article} />
