@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+import { ArticleContext } from "../../context/articleContext"
 import "./AddArticle.css"
 
 const AddArticle = () => {
+  const {saveArticle} = useContext(ArticleContext);
   const [article, setArticle] = useState()
 
   const handleArticleData = e => {
@@ -12,7 +14,7 @@ const AddArticle = () => {
   }
   const addNewArticle = e => {
     e.preventDefault()
-    // The logic will come later
+    saveArticle(article)
   }
 
   return (
