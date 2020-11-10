@@ -3,19 +3,20 @@ import { ArticleContext } from "../../context/articleContext"
 import "./AddArticle.css"
 
 const AddArticle = () => {
-  const {saveArticle} = useContext(ArticleContext);
+  const {dispatch} = useContext(ArticleContext);
   const [article, setArticle] = useState()
 
   const handleArticleData = e => {
     setArticle({
       ...article,
       [e.target.id]: e.target.value,
-    })
-  }
+    });
+  };
+
   const addNewArticle = e => {
     e.preventDefault()
-    saveArticle(article)
-  }
+    dispatch({type: 'ADD_ARTICLE', article})
+  };
 
   return (
     <form onSubmit={addNewArticle} className="add-article">
